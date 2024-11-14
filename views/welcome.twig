@@ -1,10 +1,16 @@
 {% extends "layoutuser.twig" %}
 
 {% block content %}
-<h2>Welcome, {{ user.username }}!</h2>
+<div class="container mt-5 d-flex flex-column align-items-center">
+    <div class="welcome-card p-4 shadow-sm bg-light rounded" style="max-width: 500px; width: 100%;">
+        <h2 class="text-center text-primary">Welcome, {{ user.username }}!</h2>
+        
+        <p class="text-center text-muted">You are logged in as a <strong>{{ user.role }}</strong>.</p>
 
-<p>You are logged in as a {{ user.role }}.</p>
-
-<a href="/tasks_user/my-tasks" class="btn btn-primary">View My Tasks</a>
-<a href="/auth/logout" class="btn btn-secondary">Logout</a>
+        <div class="text-center mt-4">
+            <a href="/tasks_user/my-tasks" class="btn btn-primary btn-block mb-2" style="width: 100%;">View My Tasks</a>
+            <a href="/auth/logout" class="btn btn-secondary btn-block" style="width: 100%;">Logout</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

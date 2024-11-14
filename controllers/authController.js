@@ -21,7 +21,7 @@ exports.signup = async (req, res) => {
     // Créer un nouvel utilisateur
     const newUser = new User({ username, email, password, role });
     await newUser.save();
-    res.redirect('/login'); // Redirection vers la page de connexion après inscription
+    res.redirect('/users'); // Redirection vers la page de connexion après inscription
   } catch (error) {
     console.error(error);
     res.status(400).send('Erreur lors de l\'inscription');
