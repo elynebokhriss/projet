@@ -1,0 +1,10 @@
+{% extends "layoutuser.twig" %}
+
+{% block content %}
+<h2>Welcome, {{ user.username }}!</h2>
+
+<p>You are logged in as a {{ user.role }}.</p>
+
+<a href="/tasks_user/my-tasks" class="btn btn-primary">View My Tasks</a>
+<a href="/auth/logout" class="btn btn-secondary">Logout</a>
+{% endblock %}

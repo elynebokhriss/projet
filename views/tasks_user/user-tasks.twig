@@ -1,0 +1,29 @@
+{% extends "layoutuser.twig" %}
+
+{% block content %}
+<h2>My Tasks</h2>
+
+{% if tasks.length > 0 %}
+  <div class="row">
+    {% for task in tasks %}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ task.title }}</h5>
+            <p class="card-text">{{ task.description }}</p>
+            <p class="card-text">
+              <small class="text-muted">
+                Status: {{ task.status }}
+              </small>
+            </p>
+            <a href="/tasks_user/{{ task._id }}/edit" class="btn btn-sm btn-primary">Edit</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>You have no tasks assigned.</p>
+{% endif %}
+
+{% endblock %}
