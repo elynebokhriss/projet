@@ -2,21 +2,55 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Connexion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title | default('Connexion') }}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <style>
+    /* Custom Styles */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f9fa;
+    }
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 2rem;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .form-label {
+      font-weight: bold;
+    }
+    .btn-primary {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 <body>
 
-  <h2>Connexion</h2>
-  <form action="/login" method="POST">
-    <label for="email">Adresse email:</label>
-    <input type="email" id="email" name="email" required>
+  <div class="login-container">
+    <h2 class="text-center mb-4">{{ title | default('Connexion') }}</h2>
+    <form action="/login" method="POST">
+      <div class="mb-3">
+        <label for="email" class="form-label">Adresse email:</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="Entrez votre email" required>
+      </div>
 
-    <label for="password">Mot de passe:</label>
-    <input type="password" id="password" name="password" required>
+      <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe:</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Entrez votre mot de passe" required>
+      </div>
 
-    <button type="submit">Se connecter</button>
-  </form>
+      <button type="submit" class="btn btn-primary">Se connecter</button>
+    </form>
+  </div>
 
 </body>
 </html>
+
 
